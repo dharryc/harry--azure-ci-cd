@@ -3,7 +3,7 @@ WORKDIR /src
 COPY *.csproj ./
 RUN dotnet restore
 
-COPY . ./
+COPY --exclude=tests . ./
 RUN dotnet publish -c Release -o /app/publish
 
 FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS runtime

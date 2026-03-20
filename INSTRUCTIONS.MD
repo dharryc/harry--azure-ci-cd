@@ -88,3 +88,5 @@ Registry user name: your docker username
 back to hub.docker.com --> account settings --> personal access tokens --> make new one
 it's got to be read, write, delete
 copy new token
+put that in for password
+save!
