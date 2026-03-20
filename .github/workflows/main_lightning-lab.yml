@@ -33,7 +33,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: docker.io/${{ secrets.AZUREAPPSERVICE_CONTAINERUSERNAME_528C556FE4AC46BEBC781B151D0DD92C }}/dharryc/lightning-lab:${{ github.sha }}
+          tags: docker.io/${{ secrets.AZUREAPPSERVICE_CONTAINERUSERNAME_528C556FE4AC46BEBC781B151D0DD92C }}/lightning-lab:${{ github.sha }}
           file: ./Dockerfile
 
   deploy:
@@ -49,5 +49,5 @@ jobs:
         with:
           app-name: 'lightning-lab'
           slot-name: 'Production'
-          images: 'docker.io/${{ secrets.AZUREAPPSERVICE_CONTAINERUSERNAME_528C556FE4AC46BEBC781B151D0DD92C }}/dharryc/lightning-lab:${{ github.sha }}'
+          images: 'docker.io/${{ secrets.AZUREAPPSERVICE_CONTAINERUSERNAME_528C556FE4AC46BEBC781B151D0DD92C }}/lightning-lab:${{ github.sha }}'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_A4C714152C1143049D87BD58E6E3D155 }}
