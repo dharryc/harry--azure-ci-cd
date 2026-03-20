@@ -90,3 +90,25 @@ it's got to be read, write, delete
 copy new token
 put that in for password
 save!
+
+You might have to re-enter it, there's some funny problems
+registry docker.io (get rid of trailing /)
+
+```
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: testing
+        run: |
+          docker run \
+            --rm \
+            -u $(id -u):$(id -g) \
+            -e DOTNET_CLI_HOME=/tmp/dotnet-home \
+            -e HOME=/tmp \
+            -e NUGET_PACKAGES=/tmp/nuget-packages \
+            -v .:/app \
+            -w /app \
+            mcr.microsoft.com/dotnet/sdk:10.0 \
+              dotnet test --no-restore tests/tests.csproj
+```
